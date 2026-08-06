@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build Your Own — 40 Day Campaigns</title>
+<meta name="description" content="16,000+ churchwide campaigns across 23 formation channels. Four formats, four editions, one launch. From the team behind the Purpose Driven campaign model.">
+<link rel="canonical" href="https://40daycampaigns.com/builder.html">
+<link rel="alternate" hreflang="en" href="https://40daycampaigns.com/builder.html">
+<link rel="alternate" hreflang="es" href="https://40daycampaigns.com/es/builder.html">
+<link rel="alternate" hreflang="pt" href="https://40daycampaigns.com/pt/builder.html">
+<link rel="alternate" hreflang="x-default" href="https://40daycampaigns.com/builder.html">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%23172542%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Arial%22 font-weight=%22700%22 font-size=%2214%22 fill=%22%23C9A13B%22 text-anchor=%22middle%22%3E40%3C/text%3E%3C/svg%3E">
+</head><body>
+<a class="skiplink" href="#main">Skip to content</a>
+<header class="site"><div class="wrap nav">
+ <a class="logo" href="index.html"><span class="mark">40</span> 40 Day Campaigns</a>
+ <button class="hamb" aria-label="Menu">☰</button>
+ <nav class="nav-links" aria-label="Primary">
+  <a href="browse.html">Browse</a>
+  <a href="finder.html">Campaign Finder</a>
+  <a href="builder.html">Build Your Own</a>
+  <a href="formats.html">Formats</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="for-pastors.html">For Pastors</a>
+ </nav>
+ <div class="nav-cta">
+  <a href="signin.html" class="cartlink">Sign in</a>
+  <a href="cart.html" class="cartlink">Cart<span class="n" style="display:none">0</span></a>
+  <a class="btn primary sm" href="finder.html">Find Your Campaign</a>
+ </div></div></header><main id="main">
+<section><div class="wrap">
+ <div class="center" style="max-width:800px;margin:0 auto 26px">
+  <p class="eyebrow">Build Your Own</p><h1>Build your own <em>campaign</em></h1><p class="lede">Three intelligences, one brief: your voice, our architecture, your church's readiness.</p>
+  <p class="muted" style="font-family:var(--ff-ui);font-size:14.5px">✦ Every tool here runs on the Lifetogether engine instantly — and can hand its draft to Claude for a rewrite in your voice.</p></div>
+ <div class="paytabs" id="btabs" style="justify-content:center">
+  <button class="paytab on" data-t="campaign">Campaign</button>
+  <button class="paytab" data-t="build">Complete Build</button>
+  <button class="paytab" data-t="sermon">Sermon</button>
+  <button class="paytab" data-t="group">Small Group</button></div>
+ <div id="builder">
+  <div class="btab" id="tab-campaign">
+   <div class="qcard" style="max-width:900px"><div class="grid g3" id="bsteps"></div></div>
+   <div id="brief" class="hide"><div class="qcard" style="max-width:900px"><div class="inner"></div></div></div>
+  </div>
+  <div class="btab hide" id="tab-build"><div class="qcard" style="max-width:860px">
+   <h3>Build a complete campaign from a title</h3><p class="muted" style="font-family:var(--ff-ui);font-size:14.5px">Give the engine a title and subtitle and it derives the week count from the subtitle itself, then writes every session, every devotional day, every sermon outline, the full kit, and the systems most campaigns leave out. An 8-Week Study produces 8 sessions and 40 days — never six by habit.</p>
+   <div class="paytabs" id="bmode">
+    <button class="paytab on" data-m="single">One title</button>
+    <button class="paytab" data-m="batch">A list of titles</button></div>
+   <div id="bm-single">
+    <div class="field"><label>Title</label><input id="cb-title" placeholder="Blessed"></div>
+    <div class="field"><label>Subtitle (state the week count here)</label><input id="cb-sub" placeholder="The Eight Sentences That Redefined Happiness — An 8-Week Study of the Beatitudes"></div>
+    <div class="field"><label>Primary text (optional)</label><input id="cb-text" placeholder="Matthew 5"></div></div>
+   <div id="bm-batch" class="hide">
+    <div class="field"><label>One per line — Title | Subtitle | Text</label><textarea id="cb-batch" rows="7" placeholder="1. Blessed | The Eight Sentences That Redefined Happiness — An 8-Week Study of the Beatitudes | Matthew 5&#10;2. The Prodigal Son | A 6-Week Study on the Father Who Ran — Luke 15 Verse by Verse | Luke 15&#10;3. Follow Me | A 6-Week Study on the Two Words That Started Everything | Matthew 4:19"></textarea></div></div>
+   <div id="bpreview" style="margin:12px 0"></div>
+   <button class="btn primary" id="cb-go">Build the campaign</button>
+   <div id="bprog" class="hide" style="margin-top:16px"></div>
+   <div id="bout"></div></div></div>
+  <div class="btab hide" id="tab-sermon"><div class="qcard" style="max-width:760px">
+   <h3>Build your own sermon</h3><p class="muted" style="font-family:var(--ff-ui);font-size:14.5px">Topic in, preachable build out: big idea, three movements with texts, illustrations, and a landing — then let Claude sharpen it in your voice.</p>
+   <div class="field"><label>Topic or passage</label><input id="srm-topic" placeholder="e.g., contentment · Philippians 4 · anxiety and trust"></div>
+   <div class="field"><label>Your big idea (optional)</label><input id="srm-big"></div>
+   <div class="grid g3">
+    <div class="field"><label>Audience</label><select id="srm-aud"><option>Whole church</option><option>Mostly seekers</option><option>Students</option><option>Leaders & staff</option></select></div>
+    <div class="field"><label>Length</label><select id="srm-min"><option value="25">25 minutes</option><option value="35">35 minutes</option><option value="45">45 minutes</option></select></div>
+    <div class="field"><label>Your preaching voice</label><select id="srm-voice"><option value="pastoral">Warm & pastoral</option><option value="prophetic">Direct & prophetic</option><option value="teacher">Careful teacher</option><option value="storyteller">Storyteller</option></select></div></div>
+   <button class="btn primary" id="srm-go">Build my sermon</button>
+   <div id="srmout"></div></div></div>
+  <div class="btab hide" id="tab-group"><div class="qcard" style="max-width:900px">
+   <h3>Build your own small group</h3><p class="muted" style="font-family:var(--ff-ui);font-size:14.5px">Any topic becomes a host-ready guide: open, watch, four real questions, a practice, and prayer for every session.</p>
+   <div class="field"><label>Topic or passage</label><input id="grp-topic" placeholder="e.g., forgiveness · doubt · marriage communication"></div>
+   <div class="grid g3">
+    <div class="field"><label>Sessions</label><select id="grp-n"><option value="4">4</option><option value="6" selected>6</option></select></div>
+    <div class="field"><label>Group type</label><select id="grp-type"><option>Mixed adults</option><option>Men</option><option>Women</option><option>Students</option><option>Couples</option></select></div>
+    <div class="field"><label>Depth</label><select id="grp-depth"><option>First-step friendly</option><option>Growing believers</option><option>Going deep</option></select></div></div>
+   <button class="btn primary" id="grp-go">Build my guide</button>
+   <div id="grpout"></div></div></div>
+ </div>
+</div></section></main>
+<footer class="site"><div class="wrap">
+ <div class="footgrid">
+  <div><a class="logo" href="index.html" style="color:#fff"><span class="mark">40</span> 40 Day Campaigns</a>
+   <p style="margin-top:14px;max-width:34ch;color:#9aa3b8">Sermons into curriculum. Curriculum into community. Community into movements.</p></div>
+  <div><h4>Platform</h4><a href="browse.html">Browse</a><a href="finder.html">Campaign Finder</a><a href="builder.html">Build Your Own</a><a href="formats.html">Formats</a><a href="included.html">What's included</a><a href="seasonal.html">Seasonal planner</a><a href="pricing.html">Pricing</a></div>
+  <div><h4>Company</h4><a href="about.html">About & heritage</a><a href="case-studies.html">Church stories</a><a href="how-it-works.html">How it works</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+  <div><h4>Tracks</h4><a href="for-pastors.html">Senior pastors</a><a href="for-churches.html">Church staff & groups</a><a href="browse.html?ch=13">Advisors & marketplace</a><a href="account.html">My account</a></div>
+  <div><h4>Language</h4><a href="index.html">English</a><a href="es/index.html">Español</a><a href="pt/index.html">Português</a></div>
+ </div>
+ <div class="footnote"><span>© 2026 Lifetogether · 40daycampaigns.com — Scripture standard: NIV. Embedded verse text KJV pending Biblica license.</span><span>Lifetogether · Purpose Driven lineage · 500+ church partnerships</span></div>
+</div></footer>
+<script>window.REL="";</script>
+<script src="data/index.js"></script>
+<script src="data/meta.js"></script>
+<script src="data/scripture.js"></script>
+<script src="assets/js/covers.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/spec.js"></script>
+<script src="assets/js/ai.js"></script><script>window.PAGE_LBL={"step": "Today's step", "reflect": "Reflect", "pray": "Pray", "also": "Going deeper", "week": "Week", "big": "Big idea", "ill": "Illustrations", "land": "Landing", "session": "Session", "open": "Open", "watch": "Watch", "discuss": "Discuss", "practice": "Practice", "perchurch": "per church · all editions included", "in_series": "The six sessions in this series", "dev_along": "The 40-day devotional that runs alongside", "arc_pre": "The", "arc_post": "-day arc — every day fully written: Scripture, devotional, step, and prayer. Click any day to read it.", "arc_sess": "The session arc — click any session to read it", "arc_year": "Twelve monthly milestones — click any month", "dl_dev": "Download the full devotional (.doc)", "dl_ser": "Download all sermon builds (.doc)", "dl_grp": "Download the group guide (.doc)", "dl_ser1": "Download sermon (.doc)", "dl_grp1": "Download guide (.doc)", "res_inside": "What's inside", "res_1": "Presenter deck & speaker notes", "res_2": "Participant handout (print & digital)", "res_3": "Promotion kit: email, slide, and social copy", "res_4": "Follow-up pathway into a full campaign on this theme", "res_use": "How churches use it", "res_use_p": "Run it as a stand-alone evening, a staff training, or the on-ramp Sunday before a full 40/30/21/7-day launch on the same theme.", "tab_campaign": "Campaign", "tab_sermon": "Sermon", "tab_group": "Small Group", "srm_h": "Build your own sermon", "srm_sub": "Topic in, preachable build out: big idea, three movements with texts, illustrations, and a landing — then let Claude sharpen it in your voice.", "grp_h": "Build your own small group", "grp_sub": "Any topic becomes a host-ready guide: open, watch, four real questions, a practice, and prayer for every session.", "f_topic": "Topic or passage", "f_big": "Your big idea (optional)", "f_aud": "Audience", "f_min": "Length", "aud_opts": ["Whole church", "Mostly seekers", "Students", "Leaders & staff"], "min_opts": ["25 minutes", "35 minutes", "45 minutes"], "f_sess_n": "Sessions", "f_gtype": "Group type", "gtype_opts": ["Mixed adults", "Men", "Women", "Students", "Couples"], "f_depth": "Depth", "depth_opts": ["First-step friendly", "Growing believers", "Going deep"], "gen_sermon": "Build my sermon", "gen_group": "Build my guide", "enhance": "Enhance with Claude", "by_claude": "Enhanced by Claude", "ai_working": "Claude is writing…", "ai_unavail": "Claude isn't reachable from this copy — the Lifetogether engine draft stands. Wire the seam in assets/js/ai.js when hosted.", "ai_note": "✦ Every tool here runs on the Lifetogether engine instantly — and can hand its draft to Claude for a rewrite in your voice.", "need_topic": "Give the engine a topic or passage first", "i1t": "Pastor Intelligence", "i1d": "Your voice, your convictions, the message God has put on your heart.", "i2t": "Lifetogether Intelligence", "i2d": "Twenty-five years of campaign architecture, applied to your message.", "i3t": "Church Intelligence", "i3d": "Your congregation's size, season, and readiness.", "f_idea": "The message in one sentence", "f_idea_ph": "e.g., Our church needs to trust God with money before we can be generous", "f_texts": "Texts God keeps bringing you back to (optional)", "f_voice": "Your preaching voice", "v1": "Warm & pastoral", "v2": "Direct & prophetic", "v3": "Careful teacher", "v4": "Storyteller", "f_ch": "Which formation channel is closest?", "f_fmt": "Format", "f_size": "Weekend attendance", "f_when": "Launch window", "f_eds": "Editions", "eds_all": "All four — whole church", "eds_adult": "Adult + Leader to start", "eds_all4": "Adult · Youth · Children & Family · Leader", "back": "Back", "cont": "Continue", "b_go": "Build my campaign brief", "need_idea": "Give us the message in one sentence", "brief_h": "Your custom campaign brief", "arch": "Architecture", "chan": "Channel", "sessmap": "Session map", "wk_sess": "weekend sessions", "voicecal": "Voice", "sampleday": "Sample day one", "alts": "Alternate titles to test with your team", "custom_line": "Custom campaign, scoped & written for your church", "addcustom": "Add custom campaign to cart", "startover": "Start over", "customword": "Custom Campaign", "sessions": "sessions", "tab_build": "Complete Build", "cb_h": "Build a complete campaign from a title", "cb_sub": "Give the engine a title and subtitle and it derives the week count from the subtitle itself, then writes every session, every devotional day, every sermon outline, the full kit, and the systems most campaigns leave out. An 8-Week Study produces 8 sessions and 40 days — never six by habit.", "cb_single": "One title", "cb_batch": "A list of titles", "f_title": "Title", "f_sub": "Subtitle (state the week count here)", "f_text": "Primary text (optional)", "f_batch": "One per line — Title | Subtitle | Text", "batch_ph": "1. Blessed | The Eight Sentences That Redefined Happiness — An 8-Week Study of the Beatitudes | Matthew 5\n2. The Prodigal Son | A 6-Week Study on the Father Who Ran — Luke 15 Verse by Verse | Luke 15\n3. Follow Me | A 6-Week Study on the Two Words That Started Everything | Matthew 4:19", "cb_go": "Build the campaign", "building": "Building…", "days_word": "devotional days", "calls": "generation passes", "derived_via": "Week count derived from", "fixedset": "fixed set", "campaigns_w": "campaigns", "of_word": "of", "capped": "capped at five per pass; quality collapses past that", "campaign_w": "Campaign", "built": "Built", "app": "Application", "day": "Day", "contains": "Contains", "sermons_w": "sermon outlines", "kit_w": "kit assets", "compl_w": "completion systems", "checks": "Verification", "passfail": "pass did not return", "allchecks": "Counts verified: sessions, days, sermons, and every kit asset cover every week.", "dl_full": "Download the full campaign (.doc)", "dl_json": "Download JSON", "need_title": "Give the engine a title", "need_host": "The Campaign Engine needs the Claude backend — deploy to Netlify with ANTHROPIC_API_KEY set.", "dropped": "title(s) held back — five per pass", "build_fail": "The build stopped early. What finished is shown below."};</script><script src="assets/js/flows.js"></script>
+</body></html>

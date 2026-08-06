@@ -1,0 +1,38 @@
+# Netlify configuration for 40daycampaigns.com
+# The site is static; two serverless functions add the Claude and Stripe backends.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  # No build command needed — the site ships pre-built. If you regenerate from
+  # build/ in CI, put that command here.
+
+[functions]
+  node_bundler = "esbuild"
+
+# Friendly aliases so the client can call /api/* instead of /.netlify/functions/*
+[[redirects]]
+  from = "/api/claude"
+  to = "/.netlify/functions/claude"
+  status = 200
+
+[[redirects]]
+  from = "/api/create-checkout-session"
+  to = "/.netlify/functions/create-checkout-session"
+  status = 200
+
+# Long-cache the fingerprinted static assets; keep HTML fresh.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

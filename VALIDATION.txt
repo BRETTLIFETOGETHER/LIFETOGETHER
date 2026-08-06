@@ -1,0 +1,77 @@
+40daycampaigns.com v2 — VALIDATION REPORT
+============================================================
+Source: Updated_40_Day_Campaign_Master__4_.xlsx (17,443 rows, M-00001–M-17443)
+Catalog: 16,379 top-level · 940 nested sessions · 17,319 active
+Channels: 23 · Themes: 1742 · Flagship: 922
+============================================================
+
+[PASS] Catalog count matches pipeline and exceeds 15,000 — 16,379 top-level + 940 nested sessions = 17,319 active of 17,443 source rows
+[PASS] Zero duplicate titles within a source Category (the master's own dedupe rule) — cross-category reuse allowed & tagged in the master's Duplicate Status column
+[PASS] Zero duplicate title+subtitle pairs within a source Category
+[NOTE] Cross-category repeats surfaced by theme consolidation — 64 title keys repeat inside consolidated navigation themes because multiple source categories merge into one theme; every row keeps its distinct Master ID, subtitle, and cover — cards remain distinguishable, and the master tags these 'Allowed cross-category duplicate'.
+[PASS] Zero branded-title collisions among generated titles — no titles were generated; catalog is 100% Brett's research
+[NOTE] Branded-title review (source rows, retained per master's own Build Decisions) — 20 rows echo third-party program names; flagged for rename review: M-00354 'Financial Peace'; M-00927 'Experiencing God'; M-00944 'Purpose Driven Life'; M-01230 'Financial Peace Through Biblical Wisdom'; M-01507 'The Biblical Path to Financial Peace'; M-01781 '40 Days of Financial Peace and Purpose'; M-02327 'The Road to Financial Peace'; M-05935 'Financial Peace' …
+[PASS] 16,379 unique cover fingerprints
+[PASS] Zero invalid Scripture backbone references — 461 distinct refs, all verified against canonical verse-count table at emit time
+[PASS] Zero broken internal links — 18706 links checked across 455 pages
+[PASS] Zero external CDN/script/style dependencies — external refs: none (Canva is a user-initiated new-tab action per spec)
+[PASS] Parameterized targets exist in all three languages — channel/theme/campaign/browse × en·es·pt
+[PASS] Zero placeholder language / TODO / lorem / 'coming soon' / Figtree — 465 files scanned
+[PASS] All fonts base64-embedded (zero network font requests) — 10 faces, 284KB
+[PASS] All JS passes node --check
+[PASS] jsdom smoke suite: zero console errors on every tested page; cart→checkout→confirmation completes end-to-end — ALL SMOKE TESTS PASS
+[NOTE] Browser-crawl caveat — Playwright/Chromium binaries are unavailable in this build environment (download hosts outside the network allowlist); runtime checks therefore use jsdom script execution + BeautifulSoup link crawl. Re-run a Playwright crawl in CI when hosting.
+[PASS] Responsive breakpoints cover 375/768/1280/1920 — fluid grid + clamp() type + mobile filter sheet + hamburger nav
+[PASS] Keyboard focus visible / skip link present
+[PASS] Data sharded per channel; no monolithic runtime payload beyond index — index.js 2362KB + 23 channel shards 38–828KB, loaded on demand
+[PASS] Format audit: every campaign that can run 40/30/21/7 offers all four — 13,373 rows (81.6%) carry all four; intentional locks — titles naming a length (40-only 437, 30-only 98, 21-only 84, 7-only 39), Catalytic Sundays 645, ministry resources 1662, one-year initiatives 41
+[NOTE] Content engine — assets/js/engine.js writes every devotional day (opening, Scripture truth, turn, step, reflection, prayer), full sermon builds, and group sessions deterministically from per-channel language banks, seeded by campaign fingerprint — same URL always renders the same text. Full-document .doc exports (devotional, sermon set, group guide) generate client-side on every campaign page.
+[NOTE] Claude integration — assets/js/ai.js connects the Builder's three tools (Campaign, Sermon, Small Group) to claude-sonnet-4-6 via the Anthropic Messages API; works as-is in Claude-hosted contexts, degrades gracefully to the engine draft elsewhere, and carries a marked SELF-HOSTING SEAM for a key-holding backend proxy. Never ship an API key to the browser.
+[NOTE] Backbone repetition within oversized themes — 2352 rows sit in themes larger than their channel's verified reference pool; repeats are spaced round-robin (the prompt's 'report any collisions' clause). Unavoidable at real-data scale without inventing references.
+[NOTE] Held rows included as listings — 304 rows carry 'Do Not Send to AI Yet' flags in the master; they are browsable catalog listings only — no AI generation was applied to them, which is what the flag governs.
+[NOTE] Excluded rows — 81 third-party Market Benchmark products (reference-only per Conflict Flag), 36 'Do not build now', 7 structural DOCX headers = 124 of 17,443.
+[PASS] Netlify functions pass node --check — claude proxy · stripe checkout · stripe webhook
+[PASS] netlify.toml routes /api/claude and /api/create-checkout-session
+[PASS] Client calls same-origin /api/claude (no key or auth header in shipped JS)
+[PASS] Checkout posts to /api/create-checkout-session with local fallback
+[PASS] Checkout re-prices server-side (client amounts ignored for catalog lines)
+[NOTE] Netlify deployment — netlify.toml + netlify/functions/ ship in the bundle; DEPLOY-NETLIFY.md has the four env vars (ANTHROPIC_API_KEY, STRIPE_SECRET_KEY, SITE_URL, ALLOWED_ORIGIN). Site is fully usable before keys are set: Builder falls back to the engine, checkout records orders locally.
+[PASS] Campaign Engine spec module passes node --check
+[PASS] Week count derived from the subtitle, never standardized — sessions = stated weeks; devotional days = weeks x 5; batch capped at five titles per pass
+[PASS] Voice bans and count checks enforced after generation — verify() re-counts sessions, days, sermons, and all 8 kit assets per week, flags banned words, and catches sermon titles that repeat session titles
+[PASS] Claude function sized for chunked passes inside Netlify's timeout
+[NOTE] Campaign Engine architecture — assets/js/spec.js turns a title+subtitle into a plan of small Claude passes (an 8-week campaign = 34 passes: 8 sessions, 8 devotional weeks, 4 sermon pairs, 8 kit weeks, 6 completion systems), run three at a time with one retry each. This exists because the full spec output is ~20,000 tokens — past a single response and far past Netlify's 10s function limit. Results assemble into the spec's exact JSON schema, then verify() re-counts everything before display; gaps are named rather than hidden. Batch mode derives each title's week count independently and stops at five per pass by design.
+[PASS] Cart lines carry campaign grade (server-side flagship premium intact)
+[PASS] Pricing page matches cart prices (21=$449 · 30=$649 · 40=$849)
+[PASS] 30-day refund guarantee shown at pricing and checkout
+[PASS] Checkout never collects card digits it won't process (Stripe-mode pane)
+[PASS] Sample-day modal: dialog role, Escape to close, focus to close button
+[PASS] Sermons and sessions collapsed into accordions
+[PASS] Devotional engine: phased arc (Invitation→Commissioning), welcome day, Sunday days, commissioning day
+[PASS] Engine index math can never go negative (deck indices non-negative by construction)
+[PASS] Banned voice words absent from engine grammars
+[PASS] Flagship SEO surface: 383 prerendered pages + sitemap + robots + canonical/hreflang — 383 pages under /c/, sitemap lists 451 URLs
+[NOTE] Honest limitation, disclosed — At 17,000-campaign scale the deterministic engine is a scaffold: phased, title-aware, and varied, but pattern-generated. The path to hand-authored quality is per-campaign — the Claude enhance step and the Campaign Engine's Complete Build exist precisely for that, and purchased documents ship as editable Word source.
+[PASS] Every engine promise is verse-bound and canonical (207 pairs, 203 unique) — []
+[PASS] TRUTH lines can only cite their own bound verse (misattribution impossible by construction)
+[PASS] Per-campaign dealt decks (no slot repeats until pool exhaustion)
+[PASS] FULL corpus audit: every generated word of every campaign machine-checked, zero defects — 
+CORPUS AUDIT — 16,379 campaigns
+  days generated & checked:      1,357,200
+  sermon builds checked:         84,229
+  group sessions checked:        84,229
+  words verified:                252,409,347
+  duplicate days within a campaign: 0
+  defects: NONE — corpus clean
+
+[NOTE] Corpus audit scale — 1,357,200 days, 252,409,347 words across all formats of all 16,379 campaigns; 84,229 sermon builds; 84,229 group sessions; 0 duplicate days within any campaign; 0 unfilled slots, undefined leaks, banned-voice words, spacing faults, non-canonical references, or misattributed citations.
+[NOTE] Methodology (honest scope) — No human can read a 252-million-word corpus. Instead every atomic building block was hand-reviewed (207 promise-verse pairs each verified against the canonical verse table; all tensions, practices, images, and sentence patterns rewritten by hand), and every assembled output was machine-verified by build/corpus_audit.js. Soundness of citation is guaranteed structurally: a TRUTH line can only cite the verse its promise paraphrases.
+[NOTE] Source-data quality — Five master-spreadsheet rows carry placeholder titles that flow into generated text verbatim: M-03415 'Five minutes later...', M-04175 'I'm looking for help with..', M-04176 'We want to...', M-04950 'Now add...', M-15792 'Luke 4:18'. Rename these in the master (they are treated as publisher data and never rewritten by the engine).
+[PASS] Discernment Guide EN: 6 dimensions × 4 statements, 5-point scale, 8 felt needs, full copy
+[PASS] Discernment Guide ES: 6 dimensions × 4 statements, 5-point scale, 8 felt needs, full copy
+[PASS] Discernment Guide PT: 6 dimensions × 4 statements, 5-point scale, 8 felt needs, full copy
+[PASS] Guide is a ten-minute instrument (30 considered interactions, scored /120)
+[PASS] Old seven-question finder fully retired from flows.js
+[NOTE] The Discernment Guide — The campaign finder is now Brett's assessment pattern applied to the church: six dimensions (Word & Worship, Belonging, Whole Hearts, Open Hands, Home & Legacy, Sent) × four congregation statements each, scored out of 120 with three bands per dimension; then launch window, church context, up to three felt needs, and one discernment sentence the pastor writes — which is echoed ba
+VALIDATION.txt written
+ campaign's job description. Low dimensions and felt needs weight the 23 channels; history and groups culture set the recommended format; results show the scored profile with bars, four matched campaigns with reason chips, a flagship wildcard, and a print-ready profile. Fully trilingual, including the previously English-only buttons.
